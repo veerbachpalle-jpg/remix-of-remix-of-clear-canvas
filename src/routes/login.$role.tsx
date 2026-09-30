@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Head, inputClass, PortalShell } from "@/components/portal";
 import { portalRoles, signIn, type PortalRole } from "@/lib/referral-store";
 
-const demoStaffIds: Record<Exclude<PortalRole, "victim">, string> = {
+const demoStaffIds: Partial<Record<PortalRole, string>> = {
   police: "POL-1001",
   legal: "LEG-1001",
   counselor: "COU-1001",
