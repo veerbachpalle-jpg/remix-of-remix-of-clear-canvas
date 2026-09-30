@@ -10,4 +10,4 @@
 <!-- LOVABLE:END -->
 ## Architecture decisions
 - Keep the MVP frontend-only with in-memory mock data and role-filtered views, because external localhost APIs are unavailable in hosted preview.
-- Centralize reusable dashboard controls and shell sections in src/components/operations-dashboard.tsx, keeping the index route focused on metadata and composition.
+- The operator command centre is removed; `/` redirects to `/login` (portal). Keep all portal screens under src/routes/*.tsx and shared shell/UI in src/components/portal.tsx.
