@@ -112,7 +112,7 @@ const seed = (): Report[] => [
   makeReport("RP-1084", "U-8233", "M. P••••", "2026-09-29T10:45:00Z", fill([2, 2, 1, 2, 1, 0, 2, 2, 1, 3, 2, 3])),
 ];
 
-type Session = { role: PortalRole; name: string; subjectId?: string } | null;
+type Session = { role: PortalRole; name: string; subjectId?: string | undefined } | null;
 type State = { reports: Report[]; session: Session };
 
 const KEY = "sahaay-portal-v1";

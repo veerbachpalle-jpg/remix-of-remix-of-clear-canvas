@@ -175,7 +175,7 @@ export function ReportView({ report, audience }: { report: Report; audience: "vi
   );
 }
 
-export function ActionLog({ report, service, author }: { report: Report; service?: Service | "Admin"; author?: string }) {
+export function ActionLog({ report, service, author }: { report: Report; service?: Service | "Admin" | undefined; author?: string | undefined }) {
   const [open, setOpen] = useState(false);
   const [action, setAction] = useState("Follow-up call scheduled");
   const [note, setNote] = useState("");
@@ -226,7 +226,7 @@ export function ReportRow({ report, selected, onSelect }: { report: Report; sele
   );
 }
 
-export function CaseDetail({ report, service, author }: { report: Report; service?: Service | "Admin"; author?: string }) {
+export function CaseDetail({ report, service, author }: { report: Report; service?: Service | "Admin" | undefined; author?: string | undefined }) {
   const mine = service && service !== "Admin" ? report.referrals.find((r) => r.service === service) : undefined;
   return (
     <div className="space-y-4">
