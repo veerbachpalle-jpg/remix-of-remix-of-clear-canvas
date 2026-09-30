@@ -157,10 +157,10 @@ export function signOut() {
 
 export function submitAssessment(answers: Record<string, number>): Report {
   const s = load();
-  const session = s.session?.role === "victim" ? s.session : { role: "victim" as const, name: "Anonymous", subjectId: `U-${Math.floor(9000 + Math.random() * 900)}` };
+  const session: { role: PortalRole; name: string; subjectId: string } = s.session?.role === "victim" && s.session.subjectId ? { ...s.session, subjectId: s.session.subjectId } : { role: "victim" as const, name: "Anonymous", subjectId: `U-${Math.floor(9000 + Math.random() * 900)}` };
   const label = session.name === "Anonymous" ? "Anonymous" : `${session.name.slice(0, 1).toUpperCase()}. ${"••••"}`;
   const id = `RP-${1100 + s.reports.length}`;
-  const report = makeReport(id, session.subjectId!, label, new Date().toISOString(), answers);
+  const report = makeReport(id, session.subjectId, label, new Date().toISOString(), answers);
   set({ reports: [report, ...s.reports], session });
   return report;
 }
