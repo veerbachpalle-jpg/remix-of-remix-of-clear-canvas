@@ -51,16 +51,21 @@ export function PortalShell({ title, subtitle, children }: { title: string; subt
   const { session } = usePortal();
   const navigate = useNavigate();
   const roleLabel = portalRoles.find((r) => r.id === session?.role)?.label;
+  const brand = <>
+    <div className="grid size-9 place-items-center rounded-md bg-primary text-sm font-bold text-primary-foreground shadow-sm">SA</div>
+    <div className="hidden leading-tight sm:block">
+      <p className="font-semibold text-primary">Sahaay</p>
+      <p className="font-mono text-[10px] uppercase text-muted-foreground">response network</p>
+    </div>
+  </>;
   return (
     <div className="min-h-screen bg-background text-foreground">
       <header className="sticky top-0 z-20 flex min-h-16 items-center gap-3 border-b border-border bg-card/90 px-4 shadow-sm backdrop-blur lg:px-6">
-        <Link to="/" className="flex items-center gap-3">
-          <div className="grid size-9 place-items-center rounded-md bg-primary text-sm font-bold text-primary-foreground shadow-sm">SA</div>
-          <div className="hidden leading-tight sm:block">
-            <p className="font-semibold text-primary">Sahaay</p>
-            <p className="font-mono text-[10px] uppercase text-muted-foreground">response network</p>
-          </div>
-        </Link>
+        {session ? (
+          <Link to="/dashboard/$role" params={{ role: session.role }} className="flex items-center gap-3" aria-label="Sahaay dashboard">{brand}</Link>
+        ) : (
+          <Link to="/login" className="flex items-center gap-3" aria-label="Sahaay sign in">{brand}</Link>
+        )}
         <div className="ml-2 min-w-0 border-l border-border pl-4">
           <h1 className="truncate text-lg font-semibold">{title}</h1>
           <p className="hidden font-mono text-[10px] text-muted-foreground sm:block">{subtitle ?? "Protected session · identifiers masked"}</p>
