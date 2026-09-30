@@ -10,33 +10,115 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AssessmentRouteImport } from './routes/assessment'
+import { Route as DashboardRoleRouteImport } from './routes/dashboard.$role'
+import { Route as HistorySubjectIdRouteImport } from './routes/history.$subjectId'
+import { Route as LoginIndexRouteImport } from './routes/login.index'
+import { Route as LoginRoleRouteImport } from './routes/login.$role'
+import { Route as ReportReportIdRouteImport } from './routes/report.$reportId'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AssessmentRoute = AssessmentRouteImport.update({
+  id: '/assessment',
+  path: '/assessment',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardRoleRoute = DashboardRoleRouteImport.update({
+  id: '/dashboard/$role',
+  path: '/dashboard/$role',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HistorySubjectIdRoute = HistorySubjectIdRouteImport.update({
+  id: '/history/$subjectId',
+  path: '/history/$subjectId',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginIndexRoute = LoginIndexRouteImport.update({
+  id: '/login/',
+  path: '/login/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoleRoute = LoginRoleRouteImport.update({
+  id: '/login/$role',
+  path: '/login/$role',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReportReportIdRoute = ReportReportIdRouteImport.update({
+  id: '/report/$reportId',
+  path: '/report/$reportId',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/assessment': typeof AssessmentRoute
+  '/dashboard/$role': typeof DashboardRoleRoute
+  '/history/$subjectId': typeof HistorySubjectIdRoute
+  '/login/$role': typeof LoginRoleRoute
+  '/report/$reportId': typeof ReportReportIdRoute
+  '/login/': typeof LoginIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/assessment': typeof AssessmentRoute
+  '/dashboard/$role': typeof DashboardRoleRoute
+  '/history/$subjectId': typeof HistorySubjectIdRoute
+  '/login/$role': typeof LoginRoleRoute
+  '/report/$reportId': typeof ReportReportIdRoute
+  '/login': typeof LoginIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/assessment': typeof AssessmentRoute
+  '/dashboard/$role': typeof DashboardRoleRoute
+  '/history/$subjectId': typeof HistorySubjectIdRoute
+  '/login/$role': typeof LoginRoleRoute
+  '/report/$reportId': typeof ReportReportIdRoute
+  '/login/': typeof LoginIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/assessment'
+    | '/dashboard/$role'
+    | '/history/$subjectId'
+    | '/login/$role'
+    | '/report/$reportId'
+    | '/login/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/assessment'
+    | '/dashboard/$role'
+    | '/history/$subjectId'
+    | '/login/$role'
+    | '/report/$reportId'
+    | '/login'
+  id:
+    | '__root__'
+    | '/'
+    | '/assessment'
+    | '/dashboard/$role'
+    | '/history/$subjectId'
+    | '/login/$role'
+    | '/report/$reportId'
+    | '/login/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AssessmentRoute: typeof AssessmentRoute
+  DashboardRoleRoute: typeof DashboardRoleRoute
+  HistorySubjectIdRoute: typeof HistorySubjectIdRoute
+  LoginRoleRoute: typeof LoginRoleRoute
+  ReportReportIdRoute: typeof ReportReportIdRoute
+  LoginIndexRoute: typeof LoginIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +130,59 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/assessment': {
+      id: '/assessment'
+      path: '/assessment'
+      fullPath: '/assessment'
+      preLoaderRoute: typeof AssessmentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard/$role': {
+      id: '/dashboard/$role'
+      path: '/dashboard/$role'
+      fullPath: '/dashboard/$role'
+      preLoaderRoute: typeof DashboardRoleRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/history/$subjectId': {
+      id: '/history/$subjectId'
+      path: '/history/$subjectId'
+      fullPath: '/history/$subjectId'
+      preLoaderRoute: typeof HistorySubjectIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login/': {
+      id: '/login/'
+      path: '/login'
+      fullPath: '/login/'
+      preLoaderRoute: typeof LoginIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login/$role': {
+      id: '/login/$role'
+      path: '/login/$role'
+      fullPath: '/login/$role'
+      preLoaderRoute: typeof LoginRoleRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/report/$reportId': {
+      id: '/report/$reportId'
+      path: '/report/$reportId'
+      fullPath: '/report/$reportId'
+      preLoaderRoute: typeof ReportReportIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AssessmentRoute: AssessmentRoute,
+  DashboardRoleRoute: DashboardRoleRoute,
+  HistorySubjectIdRoute: HistorySubjectIdRoute,
+  LoginRoleRoute: LoginRoleRoute,
+  ReportReportIdRoute: ReportReportIdRoute,
+  LoginIndexRoute: LoginIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
