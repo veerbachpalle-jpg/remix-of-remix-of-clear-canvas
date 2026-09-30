@@ -18,10 +18,6 @@ import {
 
 export const inputClass = "h-9 w-full rounded-md border border-input bg-background px-3 text-sm outline-none";
 
-export function quickExit() {
-  window.location.href = "https://www.google.com/search?q=weather";
-}
-
 export function Head({ eyebrow, title, action }: { eyebrow?: string; title: string; action?: React.ReactNode }) {
   return (
     <div className="flex min-w-0 items-start justify-between gap-4 border-b border-border px-5 py-4">
@@ -78,7 +74,6 @@ export function PortalShell({ title, subtitle, children }: { title: string; subt
           ) : (
             <Button variant="outline" size="sm" asChild><Link to="/login">Sign in</Link></Button>
           )}
-          <Button variant="emergency" onClick={quickExit}>Quick exit</Button>
         </div>
       </header>
       <div className="mx-auto max-w-[1500px] p-4 lg:p-6">{children}</div>
