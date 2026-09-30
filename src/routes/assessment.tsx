@@ -64,7 +64,6 @@ function Assessment() {
               <li>Your answers generate a report with scores for anxiety, distress, safety risk, and legal need.</li>
               <li>Based on that report, the system may automatically refer your case to Police, Legal Aid, and/or Counselling.</li>
               <li>Only services your case is referred to can see it. The report is stored securely as a permanent record.</li>
-              <li>You can leave at any time using Quick exit.</li>
             </ul>
             <label className="flex items-start gap-3 rounded-md border border-border bg-surface p-3">
               <input type="checkbox" checked={agreed} onChange={(e) => setAgreed(e.target.checked)} className="mt-1 accent-[var(--primary)]" />

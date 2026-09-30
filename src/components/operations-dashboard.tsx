@@ -175,7 +175,6 @@ export function OperationsDashboard() {
               <div className="flex items-center justify-between text-xs"><span className="text-muted-foreground">Privacy controls</span><span className="text-success">Enforced</span></div>
               <p className="mt-1.5 font-mono text-[10px] text-muted-foreground">Sensitive fields masked</p>
             </div>
-            <Button variant="emergency" className="w-full" onClick={() => { window.location.href = "https://www.google.com/search?q=weather"; }}><Shield className="size-4" />Quick exit</Button>
           </div>
         </aside>
 
@@ -199,7 +198,6 @@ export function OperationsDashboard() {
               </label>
               <Button variant="outline" size="sm" asChild><Link to="/login">Sign in</Link></Button>
               <Button variant="outline" size="icon" aria-label="Notifications" onClick={() => notify("No unreviewed alerts")} className="relative"><Bell /><span className="absolute right-1.5 top-1.5 size-1.5 rounded-full bg-warning" /></Button>
-              <Button variant="emergency" className="hidden sm:inline-flex" onClick={() => { window.location.href = "https://www.google.com/search?q=weather"; }}>Quick exit</Button>
             </div>
           </header>
 
