@@ -24,6 +24,7 @@ import {
   Users,
   X,
 } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { AdminMetrics, AlertPanel, CaseTimeline, SupportStatus } from "@/components/case-support";
@@ -196,6 +197,7 @@ export function OperationsDashboard() {
                 </select>
                 <ChevronDown className="pointer-events-none absolute right-2 top-2.5 size-4 text-muted-foreground" />
               </label>
+              <Button variant="outline" size="sm" asChild><Link to="/login">Sign in</Link></Button>
               <Button variant="outline" size="icon" aria-label="Notifications" onClick={() => notify("No unreviewed alerts")} className="relative"><Bell /><span className="absolute right-1.5 top-1.5 size-1.5 rounded-full bg-warning" /></Button>
               <Button variant="emergency" className="hidden sm:inline-flex" onClick={() => { window.location.href = "https://www.google.com/search?q=weather"; }}>Quick exit</Button>
             </div>
